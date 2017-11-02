@@ -37,5 +37,6 @@ popd
 
 * Get all the "fat" files
 ```bash
-git fat pull
+git fat init
+git fat pull http
 ```
