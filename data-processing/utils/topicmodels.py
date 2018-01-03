@@ -197,6 +197,37 @@ class PosteriorPredictive(object):
 
         return w, rhat_max, _
 
+class PosteriorPredictive2(PosteriorPredictive):
+
+    '''
+
+    A class for doing multiple posterior predictions for a given topic model,
+    defined by the data and state.
+
+    In this case, we use phi, and am estimates directly, rather than estimating
+    them from the state.
+
+    '''
+
+    def __init__(self, data, phi, am, verbose=False):
+
+        self.verbose = verbose
+
+        self.vocabulary = list(data['vocabulary'])
+        self.V = len(self.vocabulary)
+
+        self.word_to_index = {v:i for i, v in enumerate(self.vocabulary)}
+
+        assert self.V == data['w'].max() + 1
+    
+        self.K, _V = phi.shape
+        assert self.V == _V
+        assert self.K == len(am)
+        
+        self.am = am 
+        self.phi = phi
+
+        self._set_seed()
 
 def topic2str(phi, vocabulary, K=25):
     return ','.join([vocabulary[k] for k in phi.argsort()[::-1][:K]])

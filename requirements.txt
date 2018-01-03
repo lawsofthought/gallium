@@ -14,7 +14,7 @@ enum34==1.1.6
 functools32==3.2.3.post2
 futures==3.0.5
 git-fat==0.5.0
--e git+https://github.com/lawsofthought/gustavproject.git@3164b81ccd644e34001c960fae50aa255e744c96#egg=gustav
+-e git+https://github.com/lawsofthought/gustavproject.git@42f6d3040933926f28a64956eab902baf32ccbf8#egg=gustav
 html5lib==0.9999999
 ipykernel==4.5.2
 ipyparallel==6.0.0

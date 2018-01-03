@@ -14,6 +14,7 @@ import hashlib
 import urllib
 import bz2
 import numpy
+import cPickle as pickle
 
 #================================ End Imports ================================
 
@@ -237,3 +238,11 @@ def bunzip(filename, cache, verbose=False):
                      cache=cache, 
                      func=lambda arg: None,
                      verbose=verbose)
+
+def save_pkl(filename, **kwargs):
+    with open(filename, 'wb') as f:
+        pickle.dump(kwargs, f, protocol=2)
+
+def load_pkl(filename):
+    with open(filename, 'rb') as f:
+        return pickle.load(f)
